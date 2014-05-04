@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :testcases
+
   resources :testsuites
 
   # The priority is based upon order of creation: first created -> highest priority.
