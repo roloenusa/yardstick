@@ -5,5 +5,14 @@
   <%= @test_run.testsuite %>
 </p>
 
+<p>
+  <strong>Testcases:</strong>
+  <ul>
+  <% @test_run.test_results.each do |v| %>
+    <li><%= v.testcase.id %> - <%= v.testcase.title %> - <%= v.outcome %> - <%= link_to 'Show', v %></li>
+  <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_test_run_path(@test_run) %> |
 <%= link_to 'Back', test_runs_path %>
