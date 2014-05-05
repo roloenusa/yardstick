@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :result %><br>
-    <%= f.check_box :result %>
+    <%= select(:test_result, :result, [['pending', nil], ['passed', true], ['failed', false]]) %>
   </div>
   <div class="field">
     <%= f.label :notes %><br>

@@ -9,7 +9,7 @@
   <strong>Testcases:</strong>
   <ul>
   <% @test_run.test_results.each do |v| %>
-    <li><%= v.testcase.id %> - <%= v.testcase.title %> - <%= v.outcome %> - <%= link_to 'Show', v %></li>
+    <li><%= v.testcase.id %> - <%= v.testcase.title %> - <%= v.status %> - <%= link_to 'Show', v %></li>
   <% end %>
   </ul>
 </p>

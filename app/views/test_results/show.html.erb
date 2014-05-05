@@ -2,17 +2,27 @@
 
 <p>
   <strong>Test run:</strong>
-  <%= @test_result.test_run %>
+  <%= @test_result.test_run.id %>
 </p>
 
 <p>
-  <strong>Testcase:</strong>
-  <%= @test_result.testcase %>
+  <strong>Title:</strong>
+  <%= @test_result.testcase.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @test_result.testcase.description %>
+</p>
+
+<p>
+  <strong>Steps:</strong>
+  <%= @test_result.testcase.steps %>
 </p>
 
 <p>
   <strong>Result:</strong>
-  <%= @test_result.result %>
+  <%= @test_result.status %>
 </p>
 
 <p>
