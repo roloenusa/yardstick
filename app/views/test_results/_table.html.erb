@@ -1,0 +1,17 @@
+<table class="table table-bordered table-hover table-striped tablesorter">
+  <thead>
+    <tr>
+      <th>Test run</th>
+      <th>Testcase</th>
+      <th>Result</th>
+      <th>Notes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% test_results.each do |test_result| %>
+    <%= render partial: "test_results/table_row", locals: { test_result: test_result } %>
+    <% end %>
+  </tbody>
+</table>

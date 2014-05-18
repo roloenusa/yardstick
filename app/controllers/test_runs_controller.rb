@@ -1,15 +1,24 @@
 class TestRunsController < ApplicationController
-  before_action :set_test_run, only: [:show, :edit, :update, :destroy]
+  before_action :set_test_run, only: [:show, :edit, :update, :destroy, :revise]
 
   # GET /test_runs
   # GET /test_runs.json
   def index
     @test_runs = TestRun.all
+    @test_run = TestRun.new
   end
 
   # GET /test_runs/1
   # GET /test_runs/1.json
   def show
+    @test_results = @test_run.test_results
+  end
+
+  def new_release
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /test_runs/new
@@ -30,9 +39,11 @@ class TestRunsController < ApplicationController
       if @test_run.save
         format.html { redirect_to @test_run, notice: 'Test run was successfully created.' }
         format.json { render :show, status: :created, location: @test_run }
+        format.js   { render action: 'show', status: :created, location: @test_run }
       else
         format.html { render :new }
         format.json { render json: @test_run.errors, status: :unprocessable_entity }
+        format.js   { render json: @test_run.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,6 +53,20 @@ class TestRunsController < ApplicationController
   def update
     respond_to do |format|
       if @test_run.update(test_run_params)
+        format.html { redirect_to @test_run, notice: 'Test run was successfully updated.' }
+        format.json { render :show, status: :ok, location: @test_run }
+      else
+        format.html { render :edit }
+        format.json { render json: @test_run.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # GET /test_runs/1
+  # GET /test_runs/1.json
+  def revise
+    respond_to do |format|
+      if @test_run.revise_testcases
         format.html { redirect_to @test_run, notice: 'Test run was successfully updated.' }
         format.json { render :show, status: :ok, location: @test_run }
       else

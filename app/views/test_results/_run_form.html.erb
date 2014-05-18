@@ -1,0 +1,67 @@
+<%# Conditionally set remote: true. Also, passing model name as data attribute %>
+<% modal ||= false %>
+<% remote = modal ? true : false %>
+<%= form_for(@test_result, remote: remote, html: {role: :form, 'data-model' => 'test_result'}) do |f| %>
+  <% if @test_result.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@test_result.errors.count, "error") %> prohibited this test_result from being saved:</h2>
+
+      <ul>
+      <% @test_result.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Title</h3>
+        </div>
+        <div class="panel-body">
+          <%= @test_result.testcase.title %>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.row -->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Description</h3>
+        </div>
+        <div class="panel-body">
+          <%= @test_result.testcase.description %>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.row -->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Steps</h3>
+        </div>
+        <div class="panel-body">
+          <%= @test_result.testcase.steps %>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.row -->
+
+  <div class="field">
+    <%= f.label :result %><br>
+    <%= select(:test_result, :result, [['pending', nil], ['passed', true], ['failed', false]]) %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

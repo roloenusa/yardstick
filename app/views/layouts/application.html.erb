@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Yardstick</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <title>Yardstick</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
-<div id="wrapper">
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  </head>
+  <body>
 
-  <%= render 'layouts/sidebar' %>
+    <div id="wrapper">
 
-  <div id="page-wrapper">
+      <%= render 'layouts/sidebar' %>
 
-    <%= render 'layouts/dashboard' %>
+      <div id="page-wrapper">
 
-    <%= render 'layouts/newsboard' %>
+        <%= render 'layouts/dashboard' %>
 
-    <%= yield %>
+        <%= render 'layouts/newsboard' %>
 
-  </div><!-- /#page-wrapper -->
+        <%= yield %>
 
-</div><!-- /#wrapper -->
+      </div><!-- /#page-wrapper -->
+
+    </div><!-- /#wrapper -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
-  <%= javascript_include_tag 'footer' %>
-</body>
+    <%= javascript_include_tag 'footer' %>
+  </body>
+
+  <%= yield :after_body %>
 </html>

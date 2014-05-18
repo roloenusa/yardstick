@@ -3,12 +3,10 @@ class TestResult < ActiveRecord::Base
   belongs_to :testcase
 
   def status
-    if result.nil?
-      :not_run
-    elsif result
-      :passed
-    else
-      :failed
+    case result
+    when true then :passed
+    when false then :failed
+    else :pending
     end
   end
 end

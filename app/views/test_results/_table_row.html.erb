@@ -1,0 +1,9 @@
+<tr>
+  <td><%= link_to test_result.test_run.id, test_result_path(test_result.test_run) %></td>
+  <td><%= link_to test_result.testcase.title, test_result_path(test_result.testcase.title) %></td>
+  <td><%= test_result.status %></td>
+  <td><%= test_result.notes %></td>
+  <td><%= link_to 'Show', test_result %></td>
+  <td><%= link_to('#run_testcase_modal', 'data-toggle' => 'modal') do %>Run <i class="fa fa-arrow-circle-right"></i><% end %></td>
+  <td><%= link_to 'Destroy', test_result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

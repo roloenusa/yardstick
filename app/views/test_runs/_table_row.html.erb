@@ -1,0 +1,9 @@
+<tr>
+  <td><%= test_run.id %></td>
+  <td><%= test_run.testsuite.title %></td>
+  <td><%= test_run.created_at %></td>
+  <td><%= link_to 'Revise', revise_test_run_path(test_run) %></td>
+  <td><%= link_to 'Show', test_run %></td>
+  <td><%= link_to 'Edit', edit_test_run_path(test_run) %></td>
+  <td><%= link_to 'Destroy', test_run, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

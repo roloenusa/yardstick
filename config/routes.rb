@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
-  resources :test_results
+  resources :test_results do
+    member do
+      get 'run'
+    end
+  end
 
-  resources :test_runs
+  resources :test_runs do
+    resources :test_results
+    member do
+      get 'revise'
+    end
+  end
 
   resources :testcases
 

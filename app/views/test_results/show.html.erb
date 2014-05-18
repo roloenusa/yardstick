@@ -1,34 +1,71 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Title</h3>
+      </div>
+      <div class="panel-body">
+        <%= @test_result.testcase.title %>
+      </div>
+    </div>
+  </div>
+</div><!-- /.row -->
 
-<p>
-  <strong>Test run:</strong>
-  <%= @test_result.test_run.id %>
-</p>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Description</h3>
+      </div>
+      <div class="panel-body">
+        <%= @test_result.testcase.description %>
+      </div>
+    </div>
+  </div>
+</div><!-- /.row -->
 
-<p>
-  <strong>Title:</strong>
-  <%= @test_result.testcase.title %>
-</p>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Steps</h3>
+      </div>
+      <div class="panel-body">
+        <%= @test_result.testcase.steps %>
+      </div>
+    </div>
+  </div>
+</div><!-- /.row -->
 
-<p>
-  <strong>Description:</strong>
-  <%= @test_result.testcase.description %>
-</p>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Notes</h3>
+      </div>
+      <div class="panel-body">
+        <%= @test_result.notes %>
+      </div>
+    </div>
+  </div>
+</div><!-- /.row -->
 
-<p>
-  <strong>Steps:</strong>
-  <%= @test_result.testcase.steps %>
-</p>
-
-<p>
-  <strong>Result:</strong>
-  <%= @test_result.status %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @test_result.notes %>
-</p>
-
-<%= link_to 'Edit', edit_test_result_path(@test_result) %> |
-<%= link_to 'Back', test_results_path %>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Status</h3>
+      </div>
+      <div class="panel-body">
+        <%= @test_result.status %>
+        <div class="text-right">
+          <%= link_to(edit_test_result_path(@test_result)) do %>Edit <i class="fa fa-arrow-circle-right"></i><% end %>
+        </div>
+        <div class="text-right">
+          <%= link_to(test_results_path) do %>back <i class="fa fa-arrow-circle-right"></i><% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /.row -->
