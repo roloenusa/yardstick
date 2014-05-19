@@ -1,5 +1,5 @@
 class TestResultsController < ApplicationController
-  before_action :set_test_result, only: [:show, :edit, :update, :destroy]
+  before_action :set_test_result, only: [:show, :edit, :update, :destroy, :new_release]
 
   # GET /test_results
   # GET /test_results.json
@@ -58,6 +58,13 @@ class TestResultsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to test_results_url }
       format.json { head :no_content }
+    end
+  end
+
+  def new_release
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
