@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :test_results do
     member do
       get 'run'
-      get 'new_release'
+      get 'run_testcase'
     end
   end
 

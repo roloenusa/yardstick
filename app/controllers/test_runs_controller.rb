@@ -14,13 +14,6 @@ class TestRunsController < ApplicationController
     @test_results = @test_run.test_results
   end
 
-  def new_release
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
-
   # GET /test_runs/new
   def new
     @test_run = TestRun.new
