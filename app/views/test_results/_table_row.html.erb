@@ -1,10 +1,10 @@
 <tr>
   <td><%= link_to test_result.test_run.id, test_result_path(test_result.test_run) %></td>
-  <td><%= link_to test_result.testcase.title, test_result_path(test_result.testcase.title) %></td>
-  <td><%= test_result.status %></td>
+  <td><%= link_to test_result.testcase.title, testcase_path(test_result.testcase.id) %></td>
+  <td class="tc-<%= test_result.status %>"><%= test_result.status %></td>
   <td><%= test_result.notes %></td>
   <td><%= link_to 'Show', test_result %></td>
-  <td><%= link_to 'Run', run_testcase_test_result_path(test_result),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %></td>
+  <td><%= link_to 'Run', run_testcase_test_result_path(test_result),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :id => "myModal"}  %></td>
   <td><%= link_to 'Destroy', test_result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
 </tr>

@@ -6,9 +6,7 @@
     </div>
     <div class="modal-body">
       <%# Conditionally set remote: true. Also, passing model name as data attribute %>
-      <% modal ||= false %>
-      <% remote = modal ? true : false %>
-      <%= form_for(@test_result, remote: remote, html: {role: :form, 'data-model' => 'test_result'}) do |f| %>
+      <%= form_for(@test_result, remote: true, html: {role: :form, 'data-model' => 'test_result'}) do |f| %>
         <% if @test_result.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(@test_result.errors.count, "error") %> prohibited this test_result from being saved:</h2>

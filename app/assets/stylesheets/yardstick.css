@@ -1,0 +1,11 @@
+td.tc-pending {
+/*  background-color: #faf2cc !important; */
+}
+td.tc-passed {
+  color: #3c763d;
+  background-color: #dff0d8 !important;
+}
+td.tc-failed {
+  color: #a94442;
+  background-color: #f2dede !important;
+}

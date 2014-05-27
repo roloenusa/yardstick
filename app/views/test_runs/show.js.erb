@@ -1,2 +1,3 @@
 $('#test_run_table').append("<%= j render partial: 'table_row', locals: {test_run: @test_run } %>");
+$('#test_result_table').replaceWith("<%= j render partial: 'test_results/table', locals: {test_results: @test_run.test_results } %>");
 $('#new_test_run_modal').modal('hide');

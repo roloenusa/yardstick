@@ -44,9 +44,11 @@ class TestResultsController < ApplicationController
       if @test_result.update(test_result_params)
         format.html { redirect_to @test_result, notice: 'Test result was successfully updated.' }
         format.json { render :show, status: :ok, location: @test_result }
+        format.js   { redirect_to @test_result.test_run, notice: 'Test result was successfully updated.' }
       else
         format.html { render :edit }
         format.json { render json: @test_result.errors, status: :unprocessable_entity }
+        format.js { render json: @test_result.errors, status: :unprocessable_entity }
       end
     end
   end
