@@ -1,1 +1,7 @@
 $("#modal-window").html("<%= escape_javascript(render 'test_results/run_testcase') %>");
+// Hide modal on submit.
+$('#modal-window').click(function(e) {
+    $('form').submit(function() {
+      $('#modal-window').modal('hide');
+    });
+});

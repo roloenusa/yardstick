@@ -9,3 +9,7 @@ td.tc-failed {
   color: #a94442;
   background-color: #f2dede !important;
 }
+
+.modalbg {
+  background: transparent;
+}
