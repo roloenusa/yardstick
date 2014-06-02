@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :test_results do
     member do
       get 'run'
-      get 'run_testcase'
     end
   end
 

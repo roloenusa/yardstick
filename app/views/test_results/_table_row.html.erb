@@ -4,7 +4,7 @@
   <td class="tc-<%= test_result.status %>"><%= test_result.status %></td>
   <td><%= test_result.notes %></td>
   <td><%= link_to 'Show', test_result %></td>
-  <td><%= link_to 'Run', run_testcase_test_result_path(test_result),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :id => "myModal"}  %></td>
+  <td><%= link_to 'Run', run_test_result_path(test_result),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :id => "myModal"}  %></td>
   <td><%= link_to 'Destroy', test_result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
 </tr>

@@ -1,5 +1,5 @@
 class TestResultsController < ApplicationController
-  before_action :set_test_result, only: [:show, :edit, :update, :destroy, :run_testcase]
+  before_action :set_test_result, only: [:show, :edit, :update, :destroy, :run]
 
   # GET /test_results
   # GET /test_results.json
@@ -63,7 +63,7 @@ class TestResultsController < ApplicationController
     end
   end
 
-  def run_testcase
+  def run
     respond_to do |format|
       format.html
       format.js
