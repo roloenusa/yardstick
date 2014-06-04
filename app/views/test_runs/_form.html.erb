@@ -1,7 +1,7 @@
 <%# Conditionally set remote: true. Also, passing model name as data attribute %>
 <% modal ||= false %>
 <% remote = modal ? true : false %>
-<%= form_for(@test_run, remote: remote, html: {role: :form, 'data-model' => 'test_run'}) do |f| %>
+<%= form_for(@test_run, remote: remote, html: {role: :form, 'data-model' => 'test_run', class: "form-horizontal"}) do |f| %>
   <% if @test_run.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@test_run.errors.count, "error") %> prohibited this test_run from being saved:</h2>
@@ -14,13 +14,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :testsuite_id %><br>
-    <%= f.text_field :testsuite_id %>
+  <div class="form-group">
+    <%= f.label 'Select a Testsuite', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.select(:testsuite_id, Testsuite.pluck(:title, :id), {}, :class => 'form-control')%>
+    </div>
   </div>
 
-  <%# Added Bootstrap classes %>
-  <div class="actions">
-    <%= f.submit 'Submit', class: 'btn btn-default' %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit 'Submit', class: 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

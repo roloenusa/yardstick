@@ -1,12 +1,13 @@
 <div class="modal-dialog" id="test-result-modal">
   <div class="modal-content">
+    <%= form_for(@test_result, remote: true, html: {role: :form, 'data-model' => 'test_result'}) do |f| %>
+
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       <h4 class="modal-title" id="myModalLabel"><%=@test_result.testcase.title%></h4>
     </div>
     <div class="modal-body">
       <%# Conditionally set remote: true. Also, passing model name as data attribute %>
-      <%= form_for(@test_result, remote: true, html: {role: :form, 'data-model' => 'test_result'}) do |f| %>
         <% if @test_result.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(@test_result.errors.count, "error") %> prohibited this test_result from being saved:</h2>
@@ -53,14 +54,11 @@
           <%= f.label :notes %><br>
           <%= f.text_area :notes %>
         </div>
-        <div class="actions">
-          <%= f.submit %>
-        </div>
-      <% end %>
-
     </div>
     <div class="modal-footer">
+      <%= f.submit'Update Result', :class => 'btn btn-default' %>
       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
     </div>
+    <% end %>
   </div>
 </div>
