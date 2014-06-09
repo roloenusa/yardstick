@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140504232610) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.binary   "data"
   end
 
 end

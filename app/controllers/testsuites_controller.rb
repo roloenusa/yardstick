@@ -10,6 +10,7 @@ class TestsuitesController < ApplicationController
   # GET /testsuites/1
   # GET /testsuites/1.json
   def show
+    @testcases = Testcase.find(@testsuite.data)
   end
 
   # GET /testsuites/new
@@ -19,6 +20,12 @@ class TestsuitesController < ApplicationController
 
   # GET /testsuites/1/edit
   def edit
+    @testcases = Testcase.all
+  end
+
+  # GET /testsuites/1/add_testcases
+  def testcases
+    @testcases = Testcase.all
   end
 
   # POST /testsuites
@@ -41,7 +48,7 @@ class TestsuitesController < ApplicationController
   # PATCH/PUT /testsuites/1.json
   def update
     respond_to do |format|
-      if @testsuite.update(testsuite_params)
+      if @testsuite.update_with_data(testsuite_params)
         format.html { redirect_to @testsuite, notice: 'Testsuite was successfully updated.' }
         format.json { render :show, status: :ok, location: @testsuite }
       else
@@ -69,6 +76,7 @@ class TestsuitesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def testsuite_params
-      params.require(:testsuite).permit(:title, :description)
+      params[:testsuite][:data].collect! &:to_i if params[:testsuite][:data]
+      params.require(:testsuite).permit(:title, :description, {data: []})
     end
 end

@@ -10,8 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
+//= require jquery-1.10.2
+//= require jquery-ui-1.10.4.custom
 //= require turbolinks
 //= require bootstrap
 //= require test_result

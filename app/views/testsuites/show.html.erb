@@ -13,7 +13,7 @@
 <p>
   <strong>Testcases:</strong>
   <ul>
-  <% @testsuite.testcases.each do |v| %>
+  <% @testcases.each do |v| %>
     <li><%= v.id %> - <%= v.title %> - <%= link_to 'Show', v %></li>
   <% end %>
   </ul>
