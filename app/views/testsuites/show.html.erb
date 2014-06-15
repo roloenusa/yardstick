@@ -1,23 +1,61 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Title</h3>
+      </div>
+      <div class="panel-body">
+        <%= @testsuite.title %>
+      </div>
+    </div>
+  </div>
+</div><!-- /.row -->
 
-<p>
-  <strong>Title:</strong>
-  <%= @testsuite.title %>
-</p>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Descriptions</h3>
+      </div>
+      <div class="panel-body">
+        <%= @testsuite.description %>
+      </div>
+    </div>
+  </div>
+</div><!-- /.row -->
 
-<p>
-  <strong>Description:</strong>
-  <%= @testsuite.description %>
-</p>
+<div class="row">
+  <div class="col-lg-12">
+    <%= form_for(@testsuite, html: { class: "form-horizontal", id: "testcase" }) do |f| %>
+      <table class="table table-bordered table-hover table-striped tablesorter table-condensed">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th></th>
+          </tr>
+        </thead>
 
-<p>
-  <strong>Testcases:</strong>
-  <ul>
-  <% @testcases.each do |v| %>
-    <li><%= v.id %> - <%= v.title %> - <%= link_to 'Show', v %></li>
-  <% end %>
-  </ul>
-</p>
+        <tbody>
+          <% @testcases.each do |testcase| %>
+            <tr>
+              <td><%= testcase.id %></td>
+              <td><%= testcase.title %></td>
+              <td>
+                <%= link_to testcase_path(testcase) do %>
+                  <span class="fa fa-align-justify"></span>
+                <% end %>
+                <%= link_to edit_testcase_path(testcase) do %>
+                  <span class="fa fa-edit"></span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_testsuite_path(@testsuite) %> |
 <%= link_to 'Back', testsuites_path %>

@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-lg-12">
     <%= form_for(@testsuite, html: { class: "form-horizontal", id: "testcase" }) do |f| %>
-      <table class="table table-bordered table-hover table-striped tablesorter">
+      <table class="table table-bordered table-hover table-striped tablesorter table-condensed">
         <thead>
           <tr>
             <th>ID</th>
@@ -25,7 +25,9 @@
                 <% else %>
                   <button id="ctrl-<%= testcase.id %>" type="button" class="toggle-testcase fa fa-plus-circle btn-primary btn btn-xs" value="<%= testcase.id %>"></button>
                 <% end %>
-                
+                <%= link_to testcase_path(testcase) do %>
+                  <span class="fa fa-align-justify"></span>
+                <% end %>
                 <%= link_to edit_testcase_path(testcase) do %>
                   <span class="fa fa-edit"></span>
                 <% end %>
