@@ -4,6 +4,12 @@ class Testsuite < ActiveRecord::Base
 
   before_save :default_values
 
+  attr_accessor :testcases
+
+  def testcases
+    self.data
+  end
+
   def default_values
     self.data ||= []
   end

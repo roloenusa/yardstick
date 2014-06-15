@@ -48,7 +48,7 @@ class TestsuitesController < ApplicationController
   # PATCH/PUT /testsuites/1.json
   def update
     respond_to do |format|
-      if @testsuite.update_with_data(testsuite_params)
+      if @testsuite.update(testsuite_params)
         format.html { redirect_to @testsuite, notice: 'Testsuite was successfully updated.' }
         format.json { render :show, status: :ok, location: @testsuite }
       else

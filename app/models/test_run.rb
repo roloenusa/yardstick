@@ -13,9 +13,9 @@ class TestRun < ActiveRecord::Base
     result_ids = test_results.collect &:testcase_id
 
     testcases.reduce([]) do |acc, testcase|
-      unless result_ids.include?(testcase.id)
+      unless result_ids.include?(testcase)
         tr = TestResult.new
-        tr.testcase_id = testcase.id
+        tr.testcase_id = testcase
         tr.test_run_id = self.id
         acc << tr
       end
