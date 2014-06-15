@@ -10,5 +10,14 @@
   <%= @testsuite.description %>
 </p>
 
+<p>
+  <strong>Testcases:</strong>
+  <ul>
+  <% @testsuite.testcases.each do |v| %>
+    <li><%= v.id %> - <%= v.title %> - <%= link_to 'Show', v %></li>
+  <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_testsuite_path(@testsuite) %> |
 <%= link_to 'Back', testsuites_path %>

@@ -15,5 +15,14 @@
   <%= @testcase.steps %>
 </p>
 
+<p>
+  <strong>Testsuites:</strong>
+  <ul>
+  <% @testcase.testsuites.each do |v| %>
+    <li><%= v.id %> - <%= v.title %> - <%= link_to 'Show', v %></li>
+  <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_testcase_path(@testcase) %> |
 <%= link_to 'Back', testcases_path %>
