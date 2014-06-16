@@ -1,5 +1,6 @@
 class TestcasesController < ApplicationController
   before_action :set_testcase, only: [:show, :edit, :update, :destroy]
+  before_action :set_title, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /testcases
   # GET /testcases.json
@@ -65,6 +66,10 @@ class TestcasesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_testcase
       @testcase = Testcase.find(params[:id])
+    end
+
+    def set_title
+      @title = "Testcases"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,5 +1,6 @@
 class TestRunsController < ApplicationController
   before_action :set_test_run, only: [:show, :edit, :update, :destroy, :revise]
+  before_action :set_title, only: [:index, :show, :edit, :update, :destroy, :revise]
 
   # GET /test_runs
   # GET /test_runs.json
@@ -83,6 +84,10 @@ class TestRunsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_test_run
       @test_run = TestRun.find(params[:id])
+    end
+
+    def set_title
+      @title = "Test Run"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

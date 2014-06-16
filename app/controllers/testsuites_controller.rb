@@ -1,5 +1,6 @@
 class TestsuitesController < ApplicationController
   before_action :set_testsuite, only: [:show, :edit, :update, :destroy]
+  before_action :set_title, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /testsuites
   # GET /testsuites.json
@@ -72,6 +73,10 @@ class TestsuitesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_testsuite
       @testsuite = Testsuite.find(params[:id])
+    end
+
+    def set_title
+      @title = "Testsuites"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
