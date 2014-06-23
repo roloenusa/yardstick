@@ -1,10 +1,17 @@
 <tr id="test_result_<%= test_result.id %>">
   <td><%= link_to test_result.test_run.id, test_result_path(test_result.test_run) %></td>
-  <td><%= link_to test_result.testcase.title, test_result_path(test_result.testcase.title) %></td>
-  <td class="tc-<%= test_result.status %>"><%= test_result.status %></td>
-  <td><%= test_result.notes %></td>
-  <td><%= link_to 'Show', test_result %></td>
-  <td><%= link_to 'Run', run_test_result_path(test_result),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :id => "myModal"}  %></td>
-  <td><%= link_to 'Destroy', test_result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td><%= link_to test_result.testcase.title, run_test_result_path(test_result),  {remote: true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', id: "myModal", alt: "run"} %></td>
+  <td>
+    <%= link_to run_test_result_path(test_result),  {remote: true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', id: "myModal", alt: "run"} do %>
+      <% if test_result.status == :passed %>
+        <span class="fa fa-check-circle text-success"></span>
+      <% elsif test_result.status == :failed %>
+        <span class="fa fa-times-circle text-danger"></span>
+      <% else %>
+        <span class="fa fa-exclamation-circle" ></span>
+      <% end %>
+    <% end %>
+    <%= link_to test_result do %><span class="fa fa-file-text-o"></span><% end %>
+    <%= link_to test_result, method: :delete, data: { confirm: 'Are you sure?' } do %><span class="fa fa-trash-o"></span><% end %></td>
   <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
 </tr>
