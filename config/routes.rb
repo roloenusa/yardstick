@@ -1,5 +1,20 @@
 Rails.application.routes.draw do
 
+  devise_scope :user do
+    get "/sign_in",  :to => "users#home"
+    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+    put 'users' => 'devise/registrations#update', :as => 'user_registration'
+    get 'register' => 'users#home'
+  end
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" },
+                     :path => '',
+                     :path_names => { :sign_out => "logout", :sign_up => "register" }
+
+
+  # You can have the root of your site routed with "root"
+  root "test_runs#index"
+
   resources :test_results do
     member do
       get 'run'
@@ -16,6 +31,12 @@ Rails.application.routes.draw do
   resources :testcases
 
   resources :testsuites
+
+  resources :users do
+    member do
+      get 'profile'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
