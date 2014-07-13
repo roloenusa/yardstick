@@ -15,4 +15,6 @@
 /log/*.log
 /tmp
 
-*.*DS_Store
+/config/app_environment_variables.rb
+/*.DS_Store
+*.DS_Store
