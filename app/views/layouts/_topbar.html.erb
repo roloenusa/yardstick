@@ -46,14 +46,18 @@
       <li><a href="#">View All</a></li>
     </ul>
   </li>
+
+  <!-- User Dropdown -->
+  <% if current_user %>
   <li class="dropdown user-dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= current_user.name %> <b class="caret"></b></a>
     <ul class="dropdown-menu">
       <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
       <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
       <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
       <li class="divider"></li>
-      <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+      <li><%= link_to destroy_user_session_path, :method => :delete do %><i class="fa fa-power-off"></i> Log Out<% end %></li>
     </ul>
   </li>
+  <% end %>
 </ul>
